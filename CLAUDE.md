@@ -29,8 +29,8 @@ You are Chris Janigo's executive assistant and second brain. Chris is a solo civ
 | Outlook (Google-hosted) | Email |
 | Microsoft Office Suite | Word, Excel, PowerPoint |
 | Gusto | Payroll |
-
-No MCP servers connected yet.
+| Gmail MCP | Email drafting via `/email-response` — connected to cjanigo@topexeng-ls.com |
+| Google Calendar MCP | Calendar access for scheduling |
 
 ---
 
@@ -41,16 +41,27 @@ Build skills organically as recurring workflows emerge.
 
 Pattern: `.claude/skills/skill-name/SKILL.md`
 
+### Built Skills
+
+| Skill | Invoke | What It Does |
+|---|---|---|
+| research | `/research [question]` | Deep multi-step research tailored to Chris's business context |
+| skill-builder | `/skill-builder` | Build, audit, or optimize Claude Code skills using official best practices. Full technical reference in `.claude/skills/skill-builder/reference.md` |
+| email-response | `/email-response` | Read unread inbox emails, match to active projects, draft replies, save as Gmail drafts (never sends) |
+| expert-witness-scope-writer | `/expert-witness-scope-writer [params]` | Generate scopes of work and litigation support agreements for expert witness engagements |
+| gantt-sync | `/gantt-sync` | Sync GanttProject schedule to Google Calendar — idempotent, safe to run daily. Use `/gantt-sync dry-run` to preview changes. |
+| deliverable-check | `/deliverable-check` | Scan sent email to determine which project deliverables have been submitted and whether any have open follow-up questions from clients. |
+| morning-coffee | `/morning-coffee` | Daily morning briefing: emails received, draft replies pending, project status, calendar, deadlines. Saves as a Gmail draft to yourself at 7 AM. |
+| scope-sync | `/scope-sync [project]` | Read recent emails, classify scope changes, propose README updates (deliverables, change log, scope flags). Nothing written without approval. |
+
 ### Skills to Build (Backlog)
 
 Priority order based on Chris's biggest time drains:
 
 | Priority | Skill | What It Does |
 |---|---|---|
-| 1 | email-response | Draft client email replies from bullet points or brief context |
-| 2 | scope-writer | Generate scopes of work from project type and key parameters |
-| 3 | scheduling | Help prioritize and schedule field work across active contracts |
-| 4 | invoicing | Draft invoice summaries or billing cover emails |
+| 1 | scheduling | Help prioritize and schedule field work across active contracts |
+| 2 | invoicing | Draft invoice summaries or billing cover emails |
 
 ---
 
