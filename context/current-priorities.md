@@ -4,8 +4,8 @@ _Last updated: 2026-03-31_
 
 ## Immediate (This Week)
 1. Expert witness report — due 2026-04-01
-2. Property line adjustment — due 2026-04-04
-3. Hydraulic model and map — due 2026-04-14
+2. Property line adjustment — 26003 Sandpoint LLC / Douglass, due 2026-04-04
+3. Hydraulic model and map — due 2026-04-17 (Verdantas/OWD, both task orders)
 
 ## Ongoing Focus Areas
 1. Writing scopes of work

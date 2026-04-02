@@ -27,4 +27,8 @@ Engineering generates the most revenue. Surveying takes the most time and has th
 - **Gusto** — Payroll
 
 ## MCP Servers
-None connected yet.
+
+| MCP | Account | Purpose |
+|---|---|---|
+| Gmail | cjanigo@topexeng-ls.com | Read inbox, save drafts via `/email-response` |
+| Google Calendar | cjanigo@topexeng-ls.com | Read and create calendar events |
