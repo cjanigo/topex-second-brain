@@ -135,6 +135,47 @@ If dry-run mode: prefix all lines with [DRY RUN] and make no API calls.
 
 ---
 
+## Proposal Phase — Tentative Calendar Events
+
+Proposals in `proposals/README.md` with **Status: Pending** represent potential work that hasn't been contracted yet. Include these as tentative calendar blocks so field and office time can be rough-planned.
+
+### When to include proposals
+
+Run this step after Step 3 (Gantt diff) — proposals are additive only, never deleted by gantt-sync.
+
+1. Read `proposals/README.md` and collect all rows with `Status: Pending`
+2. For each pending proposal, read its `README.md` to get the tentative schedule (if present under `## Tentative Schedule`)
+3. Check Google Calendar for an existing event tagged with `proposal-id: [folder name]` in the description
+4. If no event exists and the proposal has a tentative schedule entry, create an all-day event:
+
+```
+summary: [PROPOSAL] [Client Name]: [Service Type]
+description: "proposal-id: [folder name]\nPending proposal — not yet under contract."
+start: { date: "YYYY-MM-DD" }
+end: { date: "YYYY-MM-DD" }
+```
+
+5. If the proposal's status has changed to Won or Lost/Expired, delete the tentative event (identified by `proposal-id:` tag)
+
+### Proposal event format
+
+- Title prefix: `[PROPOSAL]` — makes tentative events visually distinct on calendar
+- Tag in description: `proposal-id: [folder-name]` (e.g., `proposal-id: 260303-ramon-sera-topo-survey`)
+- All-day events only, no reminders
+
+### Reporting proposals
+
+Add a section to the Step 4 report:
+
+```
+Proposals (Tentative):
++ [PROPOSAL] Ramon Sera: Topo Survey  (tentative Apr 14 - Apr 18)
+~ [PROPOSAL] Doe: Boundary Survey  (rescheduled)
+- [PROPOSAL] Smith: Engineering  (proposal won — event removed)
+```
+
+---
+
 ## Error Handling
 
 | Problem | Response |

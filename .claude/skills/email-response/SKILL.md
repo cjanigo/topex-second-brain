@@ -62,10 +62,25 @@ Fetch up to 20 at a time. For each result, use `gmail_read_message` to get the f
 
 For each email, determine:
 
-1. **Project match** — Does the subject, body, or sender match any active project keywords? If yes, note which project(s).
-2. **Action required** — What does the sender actually want? (answer a question, confirm a schedule, review a document, etc.)
-3. **Information gaps** — What would Chris need to know to answer fully? If gaps exist, list them — ask Chris before drafting, or flag in the draft.
-4. **Urgency** — Does this relate to a deadline within 7 days?
+1. **RFQ check** — Before anything else, check if this is a request for quote or proposal. See RFQ Detection below.
+2. **Project match** — Does the subject, body, or sender match any active project keywords? If yes, note which project(s).
+3. **Action required** — What does the sender actually want? (answer a question, confirm a schedule, review a document, etc.)
+4. **Information gaps** — What would Chris need to know to answer fully? If gaps exist, list them — ask Chris before drafting, or flag in the draft.
+5. **Urgency** — Does this relate to a deadline within 7 days?
+
+#### RFQ Detection
+
+Flag an email as an RFQ if any of these appear in the subject or body:
+
+**High-confidence signals:** "quote", "proposal", "RFQ", "RFP", "scope of work", "what would you charge", "how much", "price", "cost estimate", "fee", "are you available", "do you do", "can you help with"
+
+**Supporting signals (combine with the above):** new sender not in any active project, mentions a parcel, address, tax lot, property, survey, or engineering need
+
+**If flagged as RFQ:**
+- Do NOT draft a standard reply email
+- Instead, invoke `/proposal-builder` with the client name, service type, and a summary of the email
+- Show the resulting proposal draft for Chris's review
+- Note in the Step 6 summary table that this email triggered `/proposal-builder`
 
 ### Step 4 — Draft the Reply
 

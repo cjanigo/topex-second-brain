@@ -17,4 +17,4 @@ _Last updated: 2026-03-31_
 Land surveying backlog — takes the most time, lowest revenue per hour. Needs a system or support.
 
 ## Active Contracts
-16 active contracts as of 2026-03-31.
+17 active contracts as of 2026-04-02.

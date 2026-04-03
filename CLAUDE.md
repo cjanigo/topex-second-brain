@@ -53,6 +53,8 @@ Pattern: `.claude/skills/skill-name/SKILL.md`
 | deliverable-check | `/deliverable-check` | Scan sent email to determine which project deliverables have been submitted and whether any have open follow-up questions from clients. |
 | morning-coffee | `/morning-coffee` | Daily morning briefing: emails received, draft replies pending, project status, calendar, deadlines. Saves as a Gmail draft to yourself at 7 AM. |
 | scope-sync | `/scope-sync [project]` | Read recent emails, classify scope changes, propose README updates (deliverables, change log, scope flags). Nothing written without approval. |
+| proposal-builder | `/proposal-builder` | Draft a complete SOW proposal when an RFQ arrives. Called automatically from `/email-response` when a quote request is detected. Saves a proposal entry to `proposals/`. |
+| proposal-review | `/proposal-review` | Monthly review: marks expired proposals (no project created within 30 days), analyzes lost/expired proposals for patterns and win rate. |
 
 ### Skills to Build (Backlog)
 
@@ -86,6 +88,18 @@ Memory + context files + decision log = the assistant gets smarter over time wit
 ## Projects
 
 Active workstreams live in `projects/`. Each project has a `README.md` with status, description, and deadlines.
+
+---
+
+## Proposals
+
+Sent proposals (scopes of work awaiting client signature) live in `proposals/`. Each proposal gets a folder named `YYMMDD-client-name-service-type/` with a `README.md`.
+
+- Index: `proposals/README.md`
+- Template: `templates/proposal-readme.md`
+- Status values: Pending / Won / Lost / Expired
+- Rule: if no project is created within 30 days of sending, the proposal is assumed Expired
+- `/proposal-review` handles monthly cleanup and pattern analysis
 
 ---
 

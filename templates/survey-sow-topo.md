@@ -6,7 +6,9 @@
 > - Keep OHWM language if site includes a stream, wetland, or water feature — remove if not applicable
 > - Volume calc language in Task 2 is optional — include only if client needs grading/volume estimates
 > - Attach General Terms and Conditions (Attachment A) with every SOW
-> - Reference example: `references/examples/survey-sow-signed-ramon-sera-2026-03-05.md`
+> - After sending, create a proposal entry: `proposals/YYMMDD-client-name/README.md` (use `templates/proposal-readme.md`)
+> - Reference example (signed SOW): `references/examples/survey-sow-signed-ramon-sera-2026-03-05.md`
+> - Reference example (proposal tracking): `references/examples/proposal-readme-ramon-sera-2026-03-03.md`
 
 ---
 

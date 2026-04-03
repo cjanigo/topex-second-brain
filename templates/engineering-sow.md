@@ -2,6 +2,8 @@
 
 _Topex Inc. standard template for civil engineering studies, analysis, and design work. Fill bracketed fields before sending._
 
+> After sending, create a proposal entry: `proposals/YYMMDD-client-name/README.md` (use `templates/proposal-readme.md`)
+
 ---
 
 TOPEX INC.
