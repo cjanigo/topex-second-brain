@@ -55,6 +55,7 @@ Pattern: `.claude/skills/skill-name/SKILL.md`
 | scope-sync | `/scope-sync [project]` | Read recent emails, classify scope changes, propose README updates (deliverables, change log, scope flags). Nothing written without approval. |
 | proposal-builder | `/proposal-builder` | Draft a complete SOW proposal when an RFQ arrives. Called automatically from `/email-response` when a quote request is detected. Saves a proposal entry to `proposals/`. |
 | proposal-review | `/proposal-review` | Monthly review: marks expired proposals (no project created within 30 days), analyzes lost/expired proposals for patterns and win rate. |
+| draft-invoice | `/draft-invoice [project or YYYY-MM]` | Scan sent email to estimate billable hours for hourly/on-call projects, format a draft invoice, and save to Gmail as a draft. Chris reviews and sends manually. |
 
 ### Skills to Build (Backlog)
 
@@ -63,7 +64,6 @@ Priority order based on Chris's biggest time drains:
 | Priority | Skill | What It Does |
 |---|---|---|
 | 1 | scheduling | Help prioritize and schedule field work across active contracts |
-| 2 | invoicing | Draft invoice summaries or billing cover emails |
 
 ---
 

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="26003 Josh Conrad Boundary Survey" company="Josh COnrad" webLink="http://" view-date="2026-03-19" view-index="0" gantt-divider-location="667" resource-divider-location="300" version="3.3.3316" locale="en_US">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpc3" name="#" width="33" order="0"/>
+        <field id="tpd3" name="Name" width="237" order="1"/>
+        <field id="tpd4" name="Begin date" width="107" order="2"/>
+        <field id="tpd5" name="End date" width="105" order="3"/>
+        <field id="tpc0" name="billed to date" width="56" order="4"/>
+        <field id="tpd15" name="Notes" width="20" order="4"/>
+        <field id="tpc1" name="paid to date" width="60" order="5"/>
+        <field id="tpc2" name="Total Fee" width="68" order="6"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+        <option id="color.recent"><![CDATA[#666666 #33ffff]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+            <taskproperty id="tpc0" name="billed to date" type="custom" valuetype="int"/>
+            <taskproperty id="tpc1" name="paid to date" type="custom" valuetype="text" defaultvalue=""/>
+            <taskproperty id="tpc2" name="Total Fee" type="custom" valuetype="int"/>
+            <taskproperty id="tpc3" name="#" type="custom" valuetype="int"/>
+        </taskproperties>
+        <task id="43" uid="104df4bb96224ce3ba111da165046eb9" name="00 Tax Filing" meeting="false" start="2026-04-06" duration="15" complete="0" expand="false">
+            <task id="44" uid="8c5c8d2f3d3b49f8b2e4240cdd6bf80f" name="personal 1040 filing" meeting="false" start="2026-04-06" duration="1" complete="0" expand="true"/>
+            <task id="45" uid="6efbca8317bd416ca6dd5b43f1e90ad0" name="Q1 2026 tax filing" meeting="false" start="2026-04-06" duration="1" complete="0" expand="true"/>
+            <task id="46" uid="4bb41022df8b40c1b02c012bf58540e3" name="2025 IRA Contribution" meeting="false" start="2026-04-06" duration="1" complete="0" expand="true"/>
+            <task id="47" uid="42378ee637514caa90596c71fbfed5b7" name="Gusto Fed Form 941" meeting="false" start="2026-04-24" duration="1" complete="0" expand="true"/>
+            <task id="48" uid="1f121c9252944ebe976039eee143872e" name="Gusto Q1 State Withholding" meeting="false" start="2026-04-24" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="6" uid="50408101bcd94c9ca77677ca55a2d3eb" name="26004 - Kyle Lake PLA" meeting="false" start="2026-03-09" duration="20" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="2475"/>
+            <customproperty taskproperty-id="tpc1" value="2475"/>
+            <customproperty taskproperty-id="tpc2" value="4950"/>
+            <customproperty taskproperty-id="tpc3" value="26004"/>
+            <task id="7" uid="5846d645ac9e4c00b46ad20bb7ebb971" name="Boundary Survey" meeting="false" start="2026-03-09" duration="2" complete="0" expand="true">
+                <depend id="8" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="8" uid="9a55d3df7e9c4f0896b1e95c41d74768" name="Draft PLA" meeting="false" start="2026-03-11" duration="14" complete="0" expand="true">
+                <depend id="50" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="50" uid="17fa893024d84f008af23350d3dbd8a4" name="County Review and Submittal" meeting="false" start="2026-03-31" duration="4" complete="0" expand="true"/>
+        </task>
+        <task id="9" uid="c84c0d3315774de49dc4961f8fe51d7f" name="26005 - Kaufman Crushing topo" meeting="false" start="2026-03-04" duration="20" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="1500"/>
+            <customproperty taskproperty-id="tpc1" value="1500"/>
+            <customproperty taskproperty-id="tpc2" value="1500"/>
+            <customproperty taskproperty-id="tpc3" value="26005"/>
+            <task id="10" uid="4cf8b89951a04b0ab58d368c7c5ed3f0" name="Create TIN" meeting="false" start="2026-03-04" duration="5" complete="0" expand="true">
+                <depend id="11" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="11" uid="b2fc2454c38445508bed950abc1e0149" name="Generate existing conditions TIN" meeting="false" start="2026-03-11" duration="1" complete="0" expand="true">
+                <depend id="12" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="12" uid="5383cc6ba9aa4365a2d712f050e485fa" name="Create deliverable" meeting="false" start="2026-03-12" duration="3" complete="0" expand="true"/>
+            <task id="52" uid="f004206112a1411abdfe8104298ddd9b" name="Report filing" meeting="false" start="2026-03-30" duration="2" complete="0" expand="true"/>
+        </task>
+        <task id="13" uid="9dc1191f54784bfa99238246d396c154" name="26006 Laura Johnson Boundary Survey" meeting="false" start="2026-03-18" duration="26" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="950"/>
+            <customproperty taskproperty-id="tpc1" value="950"/>
+            <customproperty taskproperty-id="tpc2" value="950"/>
+            <customproperty taskproperty-id="tpc3" value="26006"/>
+            <task id="14" uid="7c3b654d016e4e18abb33dd719b2ed4a" name="Boundary Survey" meeting="false" start="2026-03-18" duration="1" complete="0" expand="true"/>
+            <task id="51" uid="e12b651b11ba494283896b210f102048" name="Field Survey" meeting="false" start="2026-04-20" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="53" uid="98c85ccdef174e6b964ee48c27a59035" name="Newport - Frank Wade Park SD" meeting="false" start="2026-04-01" duration="5" complete="0" expand="true">
+            <task id="54" uid="ec484640e05b46e5b73ff17698eea4f8" name="Field Survey" meeting="false" start="2026-04-01" duration="2" complete="0" expand="true">
+                <depend id="55" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="55" uid="264ddc49ae5c418da27d2a3f2a9a1254" name="Drafting Plans" meeting="false" start="2026-04-03" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="56" uid="52236f179416461b86ee80fb6e949b54" name="City Of Sheridan" meeting="false" start="2026-04-20" duration="1" complete="0" expand="false">
+            <task id="57" uid="cec39b73d86241c6b89c46186a01a504" name="Water Rights Transfer Research" meeting="false" start="2026-04-20" duration="1" complete="0" expand="true"/>
+            <task id="58" uid="55943fe4ac7045ab9088afe76c46a464" name="CIPP Cost Estimate and Scope" meeting="false" start="2026-04-20" duration="1" complete="0" expand="true"/>
+            <task id="59" uid="9acd0e3cd9be42b0b30ec6e4316da4a7" name="Rebid Southpark Bridge" meeting="false" start="2026-04-20" duration="1" complete="0" expand="true"/>
+            <task id="60" uid="7a98367d0c63441980aca23b8b962343" name="ODEQ Coordination" meeting="false" start="2026-04-20" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="15" uid="c5c2f4d6eab345599e15b8f73dc4557f" name="26001 - Douglass Residents" meeting="false" start="2026-03-17" duration="18" complete="5" expand="false">
+            <customproperty taskproperty-id="tpc0" value="3990"/>
+            <customproperty taskproperty-id="tpc1" value="3990"/>
+            <customproperty taskproperty-id="tpc2" value="6180"/>
+            <task id="16" uid="ab16cb0b47ab4225bc5de94dae1f1a6e" name="Scope for PLA" meeting="false" start="2026-03-17" duration="1" complete="100" expand="true">
+                <depend id="17" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="17" uid="25a30fa942e84f82acc6924b8bc24893" name="survey PLA" meeting="false" start="2026-03-18" duration="2" complete="0" expand="true">
+                <depend id="18" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="18" uid="aa39b50964384d1d81a816a5e1eb672e" name="draft map for PLA" meeting="false" start="2026-03-20" duration="1" complete="0" expand="true">
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+                <depend id="64" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="64" uid="9780699b1bd44440ad2781fedb09a9ff" name="County review" meeting="false" start="2026-03-23" duration="12" complete="0" expand="true">
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="19" uid="5811be6e3ba6485b908d93be407fde9a" name="Grading Plan and FEMA Reproject" meeting="false" start="2026-04-08" duration="2" complete="0" expand="true"/>
+        </task>
+        <task id="49" uid="8eece82cb3ae4128a924d22e89e1ff2b" name="26012 - Twin Rocks Friend Camp" meeting="false" start="2026-04-20" duration="10" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="1800"/>
+            <customproperty taskproperty-id="tpc2" value="3663"/>
+            <task id="61" uid="a1b2c3d4e5f64a7b8c9d0e1f2a3b4c5d" name="Site Design - Hwy 101 Driveway Approach" meeting="false" start="2026-04-20" duration="4" complete="0" expand="true">
+                <depend id="62" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="62" uid="b2c3d4e5f6a74b8c9d0e1f2a3b4c5d6e" name="Retaining Wall Design" meeting="false" start="2026-04-24" duration="3" complete="0" expand="true">
+                <depend id="63" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="63" uid="c3d4e5f6a7b84c9d0e1f2a3b4c5d6e7f" name="ODOT Permitting" meeting="false" start="2026-04-29" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="20" uid="307c8582b36d4affb69cd99c015a6d48" name="Oceanside Modeling" meeting="false" start="2026-03-05" duration="24" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="0"/>
+            <customproperty taskproperty-id="tpc1" value="0"/>
+            <customproperty taskproperty-id="tpc2" value="20000"/>
+            <task id="21" uid="06087f329a8c4b14975d05fcf81bec79" name="export map to EPANET" meeting="false" start="2026-03-05" duration="16" complete="0" expand="true">
+                <depend id="22" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="22" uid="365c6da81a374ec2a85de9200624a68e" name="model sysem" meeting="false" start="2026-03-27" duration="4" complete="0" expand="true">
+                <depend id="23" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="23" uid="5bbf5fd0077549dc960c715840699354" name="Write Intertie Report" meeting="false" start="2026-04-02" duration="4" complete="0" expand="true"/>
+        </task>
+        <task id="24" uid="e77cbfeb9dc041099b6c8e0f8c86cf7f" name="Ramon Sera Topo Survey" meeting="false" start="2026-04-08" duration="3" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="1300"/>
+            <customproperty taskproperty-id="tpc1" value="1300"/>
+            <customproperty taskproperty-id="tpc2" value="2600"/>
+            <customproperty taskproperty-id="tpc3" value="26007"/>
+            <task id="25" uid="7184ee94f7864e58b7a6d7a747f1d248" name="Upload data for Survey" meeting="false" start="2026-04-08" duration="1" complete="0" expand="true">
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="26" uid="50ef2aadc7084cfd9e7d58644ce2c998" name="Survey" meeting="false" start="2026-04-09" duration="1" complete="0" expand="true">
+                <depend id="27" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="27" uid="324d87878c8548019bad1dd86338d351" name="Prepare map Deliverable" meeting="false" start="2026-04-10" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="28" uid="0721f35c94344c26ad387c9c85919594" name="26008 - Jim Schlatter - Fernwood Lane" meeting="false" start="2026-04-13" duration="2" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="900"/>
+            <customproperty taskproperty-id="tpc1" value="0"/>
+            <customproperty taskproperty-id="tpc2" value="1853"/>
+            <customproperty taskproperty-id="tpc3" value="26008"/>
+            <task id="29" uid="c4b53e6304a245e9b5b8d4679bf0030b" name="Survey" meeting="false" start="2026-04-13" duration="1" complete="0" expand="true">
+                <depend id="30" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="30" uid="0bda26eab34946d1a0db605c57938913" name="Legal Descriptions" meeting="false" start="2026-04-14" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="31" uid="6c62e1b23efa495fa92df0e1f189c825" name="26009 - CAC PArking Lot Analysis" meeting="false" start="2026-04-13" duration="5" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="0"/>
+            <customproperty taskproperty-id="tpc1" value="0"/>
+            <customproperty taskproperty-id="tpc2" value="10000"/>
+            <customproperty taskproperty-id="tpc3" value="26009"/>
+            <task id="32" uid="06f0a8c15db94496941bf40abb3e6284" name="Site Meeting" meeting="false" start="2026-04-13" duration="1" complete="0" expand="true">
+                <depend id="33" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="33" uid="d9865a6b09c744ed92ad082b45275ab1" name="Initial Site Plan" meeting="false" start="2026-04-14" duration="1" complete="0" expand="true">
+                <depend id="34" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="34" uid="0e6859538c184ff79c36594a6c1d26f5" name="Draft Parking Alternatives" meeting="false" start="2026-04-15" duration="1" complete="0" expand="true">
+                <depend id="35" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="35" uid="961ae3e8cace41f3bd376675b709b017" name="Meeting with Paul go over Alts" meeting="false" start="2026-04-16" duration="1" complete="0" expand="true">
+                <depend id="36" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="36" uid="772b2bb518b14428a236259e9c987ad7" name="Cost Estrimates and Report" meeting="false" start="2026-04-17" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="65" uid="d4e5f6a7b8c94d0e1f2a3b4c5d6e7f8a" name="26015 - Peterson Boundary Survey" meeting="false" start="2026-04-20" duration="4" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="0"/>
+            <customproperty taskproperty-id="tpc1" value="1125"/>
+            <customproperty taskproperty-id="tpc2" value="2250"/>
+            <customproperty taskproperty-id="tpc3" value="26015"/>
+            <task id="66" uid="e5f6a7b8c9d04e1f2a3b4c5d6e7f8a9b" name="Field Survey" meeting="false" start="2026-04-20" duration="1" complete="0" expand="true">
+                <depend id="67" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="67" uid="f6a7b8c9d0e14f2a3b4c5d6e7f8a9b0c" name="Survey Map Drafting" meeting="false" start="2026-04-21" duration="3" complete="0" expand="true"/>
+        </task>
+        <task id="37" uid="cc14351640cf40f1bcc835141c397192" name="26014 - Newport - Coast Park Playground" meeting="false" start="2026-04-27" duration="10" complete="0" expand="false">
+            <customproperty taskproperty-id="tpc0" value="0"/>
+            <customproperty taskproperty-id="tpc1" value="0"/>
+            <customproperty taskproperty-id="tpc2" value="19755"/>
+            <customproperty taskproperty-id="tpc3" value="26014"/>
+            <task id="38" uid="aaa6d4c6609747779f3818cda9ecd49a" name="Survey" meeting="false" start="2026-04-27" duration="2" complete="0" expand="true">
+                <depend id="39" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="39" uid="659923b9811a4b7dad17a4e32e49b725" name="Site Design" meeting="false" start="2026-04-29" duration="5" complete="0" expand="true">
+                <depend id="40" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="40" uid="7532b55c69fd4729a9ba42d53f6fc3d3" name="Construction Documents" meeting="false" start="2026-05-06" duration="2" complete="0" expand="true">
+                <depend id="41" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="41" uid="2e9bcc9c511d419a87d33a498a179522" name="Review with City" meeting="false" start="2026-05-08" duration="1" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

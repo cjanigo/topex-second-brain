@@ -1,3 +1,8 @@
+---
+name: proposal-review
+description: Monthly review of proposals -- marks expired, archives proposals older than 30 days (Won/Lost/Expired), analyzes win rate and patterns, generates recommendations.
+---
+
 # Proposal Review Skill
 
 ## What This Is
@@ -50,7 +55,21 @@ For each proposal with **Status: Pending**:
 
 ---
 
-### Step 3 — Analyze Lost and Expired Proposals
+### Step 3 — Archive Old Proposals
+
+For each proposal with **Status: Won, Lost, or Expired**:
+
+1. Compare today's date against the sent date
+2. If today > sent date + 30 days:
+   - Move the proposal folder from `proposals/[folder]/` to `archives/proposals/[folder]/`
+   - Remove the proposal row from `proposals/README.md` (both the Active table and the All Proposals table)
+   - Do not modify the proposal's own README.md — preserve it as-is in the archive
+
+**Pending proposals are never archived**, even if they are old. Step 2 will have already marked overdue Pending proposals as Expired before this step runs.
+
+---
+
+### Step 4 — Analyze Lost and Expired Proposals
 
 Collect all proposals with Status: **Lost** or **Expired**.
 

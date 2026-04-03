@@ -1,3 +1,8 @@
+---
+name: gantt-sync
+description: Sync GanttProject schedule to Google Calendar -- idempotent, safe to run daily. Also maintains monthly billing milestones (24th and 25th). Use dry-run to preview changes.
+---
+
 # Gantt Sync Skill
 
 ## What This Is
@@ -22,13 +27,22 @@ Optional — dry run (report what would change, create nothing):
 
 ---
 
-## Source File
+## Source Files
 
+**GanttProject schedule (multi-day milestones):**
 ```
-C:\Users\cjani\Documents\GanttProject\ongoing work schedule.gan
+schedule/ongoing work schedule.gan
 ```
+Path is relative to the repo root (`C:\Users\cjani\OneDrive\Documents\Admin\Claude AI`).
+When saving from GanttProject, save directly to this path to keep it version-controlled.
 
-If the file path has changed or is unreachable, stop and tell Chris immediately.
+**Daily tasks (hour-level items):**
+```
+schedule/tasks.md
+```
+See the **tasks.md Sync Protocol** section below.
+
+If either file is unreachable, stop and tell Chris immediately.
 
 ---
 
@@ -135,6 +149,43 @@ If dry-run mode: prefix all lines with [DRY RUN] and make no API calls.
 
 ---
 
+## Billing Milestones — Standing Monthly Events
+
+Two recurring all-day events are maintained on the calendar every month regardless of what's in the .gan file. Check for them as part of every sync.
+
+| Event | Day | Description tag | Purpose |
+|---|---|---|---|
+| Run /draft-invoice | 24th of each month | `billing-milestone: draft-invoice` | Run the draft-invoice skill to generate invoices for hourly projects |
+| Send Invoices | 25th of each month | `billing-milestone: send-invoices` | Review drafts, finalize, assign invoice numbers, and send |
+
+### How to check
+
+After Step 3, use `gcal_list_events` with `q: "billing-milestone"` and `timeMin` = today, `timeMax` = 60 days out.
+
+For each of the next two calendar months, verify that both billing milestone events exist on the 24th and 25th. If either is missing (e.g., deleted accidentally), recreate it:
+
+```
+summary: "Run /draft-invoice"  (for the 24th)
+summary: "Send Invoices"       (for the 25th)
+description: "billing-milestone: [draft-invoice | send-invoices]\n\n[standard description]"
+start: { date: "YYYY-MM-24" or "YYYY-MM-25" }
+end: { date: "YYYY-MM-25" or "YYYY-MM-26" }
+```
+
+These are standalone recurring events managed outside of GanttProject. Do not delete them during the normal gantt diff step (Step 3). The diff step only touches events tagged with `gantt-uid:`.
+
+Include billing milestone status in the Step 4 report:
+
+```
+Billing Milestones:
+  Apr 24 — Run /draft-invoice  ✓
+  Apr 25 — Send Invoices       ✓
+  May 24 — Run /draft-invoice  ✓
+  May 25 — Send Invoices       ✓
+```
+
+---
+
 ## Proposal Phase — Tentative Calendar Events
 
 Proposals in `proposals/README.md` with **Status: Pending** represent potential work that hasn't been contracted yet. Include these as tentative calendar blocks so field and office time can be rough-planned.
@@ -172,6 +223,79 @@ Proposals (Tentative):
 + [PROPOSAL] Ramon Sera: Topo Survey  (tentative Apr 14 - Apr 18)
 ~ [PROPOSAL] Doe: Boundary Survey  (rescheduled)
 - [PROPOSAL] Smith: Engineering  (proposal won — event removed)
+```
+
+---
+
+## tasks.md Sync Protocol
+
+`schedule/tasks.md` holds short tasks that take hours, not days. These sync to Google Calendar as **timed events** (not all-day).
+
+### File Format
+
+```markdown
+| uid | Date | Start | Duration | Task | Project |
+|-----|------|-------|----------|------|---------|
+| task-a1b2c3d4 | 2026-04-02 | 09:00 | 2h | Review hydraulic model draft | 26002 |
+| | 2026-04-03 | 14:00 | 1h | Call with OWD | 26002 |
+```
+
+- `Date` — YYYY-MM-DD
+- `Start` — HH:MM, 24-hour, Pacific time
+- `Duration` — `1h`, `1.5h`, `2h`, `30m`, etc.
+- `Task` — free text
+- `Project` — project number or short name (optional)
+- `uid` — auto-generated; leave blank on new rows, skill fills it in
+
+### Step A — Parse tasks.md
+
+Read the file, skip the header and comment lines. For each data row:
+
+1. Compute `uid` = `task-` + first 8 chars of SHA-1(`date|start|task`)
+2. If the `uid` column is blank, write the computed uid back into the file (update that row in place)
+3. Parse `Duration` into minutes: `1h` = 60, `1.5h` = 90, `30m` = 30, etc.
+
+### Step B — Fetch Existing Task Events
+
+Use `gcal_list_events` with:
+- `q`: `task-uid`
+- `timeMin`: 30 days ago
+- `timeMax`: 60 days from today
+- `timeZone`: `America/Los_Angeles`
+
+Build a lookup map: `uid → event`.
+
+### Step C — Diff and Sync
+
+Same logic as the .gan diff (Step 3), but for timed events:
+
+| Situation | Action |
+|---|---|
+| Row in tasks.md, no matching calendar event | **Create** timed event |
+| Row in tasks.md, matching event, same start+duration | **Skip** |
+| Row in tasks.md, matching event, dates/time changed | **Delete** old, **Create** new |
+| Calendar event with `task-uid:` not found in tasks.md | **Delete** event (task completed or removed) |
+
+**Create event parameters:**
+```
+summary: "[Project]: [Task]"  (or just "[Task]" if no project)
+description: "task-uid: [uid]"
+start: { dateTime: "YYYY-MM-DDTHH:MM:00", timeZone: "America/Los_Angeles" }
+end:   { dateTime: "YYYY-MM-DDTHH:MM:00", timeZone: "America/Los_Angeles" }
+```
+
+No reminders. Not all-day.
+
+### Reporting
+
+Include task sync results in the Step 4 report:
+
+```
+Daily Tasks:
++ 26002: Review hydraulic model draft  (Apr 2, 9:00–11:00)
+~ 26002: Call with OWD  (rescheduled)
+- 26005: Site visit prep  (task removed)
+Unchanged: 2
 ```
 
 ---

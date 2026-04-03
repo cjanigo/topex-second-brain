@@ -1,3 +1,8 @@
+---
+name: deliverable-check
+description: Scan sent email to determine which project deliverables have been submitted and whether any have open follow-up questions from clients.
+---
+
 # Deliverable Check Skill
 
 ## What This Is
@@ -162,6 +167,29 @@ _Last checked: YYYY-MM-DD_
 ```
 
 Do not overwrite any other sections. Only add or replace the `## Deliverable Status` block.
+
+---
+
+### Step 6 — Offer to Add Reply Tasks to schedule/tasks.md
+
+If any deliverables have **Pending Follow-up** status, ask:
+
+> Want me to add reply tasks to schedule/tasks.md for any of these?
+
+List the pending items and let Chris choose. If he says yes (to all or specific items), append a row to `schedule/tasks.md` for each selected item:
+
+| Field | Value |
+|---|---|
+| uid | _(leave blank — gantt-sync will fill in)_ |
+| Date | Today's date (YYYY-MM-DD) |
+| Start | _(leave blank — Chris sets the time)_ |
+| Duration | 1h |
+| Task | Reply to [client name] re: [deliverable name] |
+| Project | [project number] |
+
+If Start is left blank, gantt-sync will skip creating a calendar event for that row until Chris fills it in.
+
+Do not add tasks for **Not Yet Sent** deliverables — those are multi-day project work that belongs in GanttProject.
 
 ---
 
