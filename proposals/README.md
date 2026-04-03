@@ -8,6 +8,8 @@ _Proposals sent to potential clients. Updated by `/proposal-builder` when a prop
 
 **Rule:** Follow up with the client 7 days after sending a proposal. If no response, follow up again at 14 days. Log follow-up dates in the proposal README.
 
+**Rule:** Any calendar blocks scheduled for proposal-stage work must be marked `(TENTATIVE)` in the event title and include a note in the description. Remove tentative status only after the contract is fully executed AND the down payment is received. See `.claude/rules/proposal-calendar-tentative.md`.
+
 ---
 
 ## Active Proposals (Pending)

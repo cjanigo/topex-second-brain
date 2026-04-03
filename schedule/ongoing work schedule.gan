@@ -89,11 +89,11 @@
             <task id="14" uid="7c3b654d016e4e18abb33dd719b2ed4a" name="Boundary Survey" meeting="false" start="2026-03-18" duration="1" complete="0" expand="true"/>
             <task id="51" uid="e12b651b11ba494283896b210f102048" name="Field Survey" meeting="false" start="2026-04-20" duration="3" complete="0" expand="true"/>
         </task>
-        <task id="53" uid="98c85ccdef174e6b964ee48c27a59035" name="Newport - Frank Wade Park SD" meeting="false" start="2026-04-01" duration="5" complete="0" expand="true">
-            <task id="54" uid="ec484640e05b46e5b73ff17698eea4f8" name="Field Survey" meeting="false" start="2026-04-01" duration="2" complete="0" expand="true">
+        <task id="53" uid="98c85ccdef174e6b964ee48c27a59035" name="Newport - Frank Wade Park SD" meeting="false" start="2026-04-20" duration="5" complete="0" expand="true">
+            <task id="54" uid="ec484640e05b46e5b73ff17698eea4f8" name="Field Survey" meeting="false" start="2026-04-20" duration="2" complete="0" expand="true">
                 <depend id="55" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="55" uid="264ddc49ae5c418da27d2a3f2a9a1254" name="Drafting Plans" meeting="false" start="2026-04-03" duration="3" complete="0" expand="true"/>
+            <task id="55" uid="264ddc49ae5c418da27d2a3f2a9a1254" name="Drafting Plans" meeting="false" start="2026-04-22" duration="3" complete="0" expand="true"/>
         </task>
         <task id="56" uid="52236f179416461b86ee80fb6e949b54" name="City Of Sheridan" meeting="false" start="2026-04-20" duration="1" complete="0" expand="false">
             <task id="57" uid="cec39b73d86241c6b89c46186a01a504" name="Water Rights Transfer Research" meeting="false" start="2026-04-20" duration="1" complete="0" expand="true"/>

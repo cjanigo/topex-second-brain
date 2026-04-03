@@ -2,7 +2,6 @@
 name: morning-coffee
 description: Use when someone asks for a morning briefing, daily summary, day overview, morning coffee report, or daily digest. Summarizes emails received, drafted responses, and project status, then saves a briefing as a Gmail draft addressed to Chris.
 disable-model-invocation: true
-context: fork
 ---
 
 # Morning Coffee Skill

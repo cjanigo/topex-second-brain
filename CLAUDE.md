@@ -122,6 +122,7 @@ SOPs live in `references/sops/`. Style examples and sample outputs live in `refe
 - **Important decision made?** Append to `decisions/log.md`
 - **Repeating the same request?** Time to build a skill
 - **Project done?** Move to `archives/` — never delete
+- **Project created or updated?** Update `schedule/tasks.md` with new meetings/deadlines, then run `/gantt-sync` — see `.claude/rules/project-update-sync.md`
 
 ---
 
