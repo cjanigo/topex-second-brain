@@ -1,3 +1,8 @@
+---
+name: email-response
+description: Read unread inbox emails, match to active projects, draft replies, and save as Gmail drafts. Never sends. Chris reviews and sends manually. Also triggers proposal-builder for RFQs and title-research for property-related quotes.
+---
+
 # Email Response Skill
 
 ## What This Is
@@ -40,15 +45,7 @@ Before reading any emails, load:
 - `context/me.md` — Chris's credentials and role
 - All project READMEs in `projects/` — for keyword matching and context
 
-Build a mental map of active projects and their keywords. Always load project READMEs from `projects/` first — deadlines and client details live there and should inform every draft.
-
-| Project | Keywords to Match | Deadline |
-|---|---|---|
-| Expert Witness Report | expert witness, report, testimony, case, deposition, legal | 2026-04-01 (TODAY) |
-| Property Line Adjustment | property line, boundary, adjustment, parcel, lot line, PLA | 2026-04-04 |
-| Hydraulic Model and Map | hydraulic, model, EPANET, map, flood, flow, drainage, stormwater, culvert | 2026-04-14 |
-
-This table is a starting snapshot. Always re-read `projects/*/README.md` at runtime to get current deadlines, client names, parcel numbers, and any notes added since this file was last updated.
+Build a mental map of active projects and their keywords. Always load project READMEs from `projects/` first — deadlines and client details live there and should inform every draft. Do not rely on any hardcoded keyword or deadline list here; read the READMEs at runtime every time.
 
 ### Step 2 — Fetch Unread Emails
 
@@ -56,7 +53,9 @@ Use `gmail_search_messages` to find emails:
 - Default query: `is:unread in:inbox`
 - Apply any user-provided search filter on top
 
-Fetch up to 20 at a time. For each result, use `gmail_read_message` to get the full content.
+Fetch up to 20 at a time. For each result:
+1. Use `gmail_read_message` to get the message content and thread ID.
+2. If the message has a `threadId` (i.e., it is part of a thread with prior messages), also call `gmail_read_thread` with that thread ID to get the full conversation in order. Use this context when drafting — prior messages often contain commitments, questions, or decisions that should inform the reply.
 
 ### Step 3 — Triage Each Email
 
@@ -81,6 +80,21 @@ Flag an email as an RFQ if any of these appear in the subject or body:
 - Instead, invoke `/proposal-builder` with the client name, service type, and a summary of the email
 - Show the resulting proposal draft for Chris's review
 - Note in the Step 6 summary table that this email triggered `/proposal-builder`
+
+**If flagged as RFQ AND the email contains a property address, taxlot number, legal description, or owner + parcel reference:**
+- Do NOT invoke `/title-research` automatically — county portals require a live browser session before automated access works
+- Instead, save a self-addressed Gmail draft to `cjanigo@topexeng-ls.com` with:
+  - **Subject:** `Title Research Ready: [property address or taxlot]`
+  - **Body:**
+    - One line: client name, property identifier, and service type from the RFQ
+    - "Want me to run title research on this one? Open the portal links below first, then run the command."
+    - Portal pre-access links (open in browser and accept any disclaimers before running):
+      - Helion (deeds): https://helion.co.lincoln.or.us/DigitalResearchRoomPublic/ — click "I Agree"
+      - Property Assessment: https://propertyweb.co.lincoln.or.us/
+      - ArcGIS (parcel + adjoiners): https://arcgisserver.lincolncounty.org/arcgis/rest/services/?f=json
+    - Command to run when ready: `/title-research [extracted identifier]`
+- This draft is informational only — nothing runs until Chris manually invokes `/title-research`
+- Note in the Step 6 summary table: "Title research prompt saved as draft — portal links provided, awaiting your go-ahead"
 
 ### Step 4 — Draft the Reply
 

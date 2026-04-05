@@ -147,7 +147,7 @@ Rules for the briefing:
 
 Use `gmail_create_draft` with:
 - `to`: `cjanigo@topexeng-ls.com`
-- `subject`: `Morning Coffee — [Weekday, Month Day]`
+- `subject`: `Morning Coffee: [Weekday, Month Day]`
 - `body`: the full briefing text (plain text)
 - `contentType`: `text/plain`
 

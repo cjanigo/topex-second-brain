@@ -25,6 +25,7 @@ Engineering generates the most revenue. Surveying takes the most time and has th
 - **Outlook** — Email frontend (hosted via Google)
 - **Microsoft Office Suite** — Word, Excel, PowerPoint
 - **Gusto** — Payroll
+- **Found Bank** — Business checking and card (found.com)
 
 ## MCP Servers
 
