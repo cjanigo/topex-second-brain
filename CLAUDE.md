@@ -64,9 +64,7 @@ Pattern: `.claude/skills/skill-name/SKILL.md`
 | draft-invoice | `/draft-invoice [project or YYYY-MM]` | Scan sent email to estimate billable hours for hourly/on-call projects, format a draft invoice, and save to Gmail as a draft. Chris reviews and sends manually. |
 | expense-classify | `/expense-classify [receipt, transaction, or description]` | Classify a receipt, invoice, or bank transaction into an IRS-compliant category with flags. Outputs a structured Expense Record JSON for human review. Never makes filing decisions. Governed by `references/financial-ops-ai-constitution.md`. |
 | bank-categorize | `/bank-categorize [YYYY-MM]` | Process a bank or credit card feed (CSV, JSON, or pasted rows), match vendors, apply category codes, flag mixed-use and uncategorized transactions. Outputs structured records for bookkeeping review. |
-| payroll-summary | `/payroll-summary [pay-period]` | Generate a payroll summary for a single pay period with all Oregon and federal tax line items (FICA, FIT, Oregon withholding, STT, UI, WBF). Outputs a structured Payroll Summary Record for human review. Never runs payroll. |
-| quarterly-filing | `/quarterly-filing [Q# YYYY]` | Aggregate payroll records for a quarter into export-ready Form 941 and Oregon OQ/132 data with a filing checklist. Outputs drafts for human review. Never submits filings. |
-| annual-close | `/annual-close [YYYY]` | Year-end close: W-2 data file, 1099-NEC candidate list, Form 1120-S data summary, FUTA reconciliation, and year-end checklist. Outputs drafts for CPA review. Never files anything. |
+| payroll | `/payroll [YYYY-MM \| Q# YYYY \| YYYY]` | Payroll pipeline with three modes: single pay period summary (YYYY-MM or date range), quarterly 941/OQ filing package (Q# YYYY), or year-end W-2/1099-NEC/1120-S/FUTA close (YYYY). Dispatches by argument. Never runs payroll, initiates deposits, or submits filings. |
 
 ### Skills to Build (Backlog)
 
