@@ -41,7 +41,7 @@ Build skills organically as recurring workflows emerge.
 
 Pattern: `.claude/skills/skill-name/SKILL.md`
 
-### Built Skills
+### Work Skills
 
 | Skill | Invoke | What It Does |
 |---|---|---|
@@ -55,13 +55,18 @@ Pattern: `.claude/skills/skill-name/SKILL.md`
 | scope-sync | `/scope-sync [project]` | Read recent emails, classify scope changes, propose README updates (deliverables, change log, scope flags). Nothing written without approval. |
 | proposal-builder | `/proposal-builder` | Draft a complete SOW proposal when an RFQ arrives. Called automatically from `/email-response` when a quote request is detected. Saves a proposal entry to `proposals/`. |
 | proposal-review | `/proposal-review` | Monthly review: marks expired proposals (no project created within 30 days), analyzes lost/expired proposals for patterns and win rate. |
-| draft-invoice | `/draft-invoice [project or YYYY-MM]` | Scan sent email to estimate billable hours for hourly/on-call projects, format a draft invoice, and save to Gmail as a draft. Chris reviews and sends manually. |
 | title-research | `/title-research [address, taxlot, legal desc, or owner name]` | Look up a Lincoln County, OR property, find all adjoining parcels, download recorded deeds into `deeds/` and plats/records of survey into `plats/` under the project folder. Also triggered automatically from `/email-response` when an RFQ includes property data. |
+
+### Financial Skills
+
+| Skill | Invoke | What It Does |
+|---|---|---|
+| draft-invoice | `/draft-invoice [project or YYYY-MM]` | Scan sent email to estimate billable hours for hourly/on-call projects, format a draft invoice, and save to Gmail as a draft. Chris reviews and sends manually. |
 | expense-classify | `/expense-classify [receipt, transaction, or description]` | Classify a receipt, invoice, or bank transaction into an IRS-compliant category with flags. Outputs a structured Expense Record JSON for human review. Never makes filing decisions. Governed by `references/financial-ops-ai-constitution.md`. |
+| bank-categorize | `/bank-categorize [YYYY-MM]` | Process a bank or credit card feed (CSV, JSON, or pasted rows), match vendors, apply category codes, flag mixed-use and uncategorized transactions. Outputs structured records for bookkeeping review. |
 | payroll-summary | `/payroll-summary [pay-period]` | Generate a payroll summary for a single pay period with all Oregon and federal tax line items (FICA, FIT, Oregon withholding, STT, UI, WBF). Outputs a structured Payroll Summary Record for human review. Never runs payroll. |
 | quarterly-filing | `/quarterly-filing [Q# YYYY]` | Aggregate payroll records for a quarter into export-ready Form 941 and Oregon OQ/132 data with a filing checklist. Outputs drafts for human review. Never submits filings. |
 | annual-close | `/annual-close [YYYY]` | Year-end close: W-2 data file, 1099-NEC candidate list, Form 1120-S data summary, FUTA reconciliation, and year-end checklist. Outputs drafts for CPA review. Never files anything. |
-| bank-categorize | `/bank-categorize [YYYY-MM]` | Process a bank or credit card feed (CSV, JSON, or pasted rows), match vendors, apply category codes, flag mixed-use and uncategorized transactions. Outputs structured records for bookkeeping review. |
 
 ### Skills to Build (Backlog)
 
