@@ -62,8 +62,7 @@ Pattern: `.claude/skills/skill-name/SKILL.md`
 | Skill | Invoke | What It Does |
 |---|---|---|
 | draft-invoice | `/draft-invoice [project or YYYY-MM]` | Scan sent email to estimate billable hours for hourly/on-call projects, format a draft invoice, and save to Gmail as a draft. Chris reviews and sends manually. |
-| expense-classify | `/expense-classify [receipt, transaction, or description]` | Classify a receipt, invoice, or bank transaction into an IRS-compliant category with flags. Outputs a structured Expense Record JSON for human review. Never makes filing decisions. Governed by `references/financial-ops-ai-constitution.md`. |
-| bank-categorize | `/bank-categorize [YYYY-MM]` | Process a bank or credit card feed (CSV, JSON, or pasted rows), match vendors, apply category codes, flag mixed-use and uncategorized transactions. Outputs structured records for bookkeeping review. |
+| expense-classify | `/expense-classify [receipt, transaction, or bank CSV]` | Classify a single receipt/invoice or process a bulk bank feed (auto-detects). IRS-compliant categories and flags. Outputs Expense or Banking Transaction Records for review. Never makes filing decisions. |
 | payroll | `/payroll [YYYY-MM \| Q# YYYY \| YYYY]` | Payroll pipeline with three modes: single pay period summary (YYYY-MM or date range), quarterly 941/OQ filing package (Q# YYYY), or year-end W-2/1099-NEC/1120-S/FUTA close (YYYY). Dispatches by argument. Never runs payroll, initiates deposits, or submits filings. |
 
 ### Skills to Build (Backlog)
