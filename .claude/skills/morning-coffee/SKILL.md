@@ -30,6 +30,15 @@ No arguments needed. Run manually or via daily schedule.
 
 ## Execution Protocol
 
+### Step 0 — Find a Good News Story
+
+Use WebSearch to find one piece of good news from the last 24 hours. Search for something like: `good news today [date]` or `positive news [date]`. Pick one short, feel-good story -- science, wildlife, community, human interest, or anything uplifting. Not politics. Not business. Capture:
+- Headline
+- One sentence summary
+- Source name
+
+This goes at the top of the briefing.
+
 ### Step 1 — Load Project Context
 
 Read all project READMEs before doing anything else. These are the source of truth for deadlines, deliverables, and status.
@@ -107,6 +116,10 @@ Format the briefing as plain text using the template below. Keep it short and sc
 ```
 Morning Coffee — [Weekday], [Month Day, Year]
 
+GOOD NEWS
+[Headline] -- [Source]
+[One sentence summary]
+
 TODAY'S FOCUS
 [1-3 sentence plain-English summary of what matters most today. Lead with the hardest deadline.]
 
@@ -131,6 +144,10 @@ PROJECT STATUS
 Pull from the README data loaded in Step 1. Show only active projects. Next Pending Deliverable = first unchecked item by due date.
 
 ---
+JOKE OF THE DAY
+[One short, clean joke. Engineering, surveying, or dad-joke style preferred. Keep it work-appropriate.]
+
+---
 Chris Janigo, PE, PLS | Topex Inc.
 ```
 
@@ -143,7 +160,11 @@ Rules for the briefing:
 - No em dashes, no en dashes
 - Pacific time for all times
 
-### Step 6 — Save as Gmail Draft
+### Step 6 — Write the Joke
+
+Pick one short, clean joke to close the briefing. Engineering, surveying, construction, or dad-joke style preferred. Generate it fresh each day -- don't reuse the same joke.
+
+### Step 7 — Save as Gmail Draft
 
 Use `gmail_create_draft` with:
 - `to`: `cjanigo@topexeng-ls.com`
@@ -153,7 +174,7 @@ Use `gmail_create_draft` with:
 
 Do NOT send. Save as draft only. Chris will see it in Gmail drafts when he opens his inbox.
 
-### Step 7 — Confirm
+### Step 8 — Confirm
 
 Output a single line to confirm completion:
 
