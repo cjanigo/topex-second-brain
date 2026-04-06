@@ -20,13 +20,13 @@ Calls a local [Ollama](https://ollama.com) model and prints the response to stdo
 ### Basic usage
 
 ```bash
-python ".claude/lib/ollama_query.py" --prompt "Summarize this paragraph: ..."
+"C:\Users\cjani\.local\bin\python3.14.exe" ".claude/lib/ollama_query.py" --prompt "Summarize this paragraph: ..."
 ```
 
 ### With system prompt and custom model
 
 ```bash
-python ".claude/lib/ollama_query.py" \
+"C:\Users\cjani\.local\bin\python3.14.exe" ".claude/lib/ollama_query.py" \
   --prompt "Draft a one-line project description." \
   --model "qwen3-coder:30b" \
   --system "You are a civil engineering assistant for Topex Inc."
@@ -38,7 +38,7 @@ In a SKILL.md, instruct Claude to run the script via Bash and use the stdout res
 
 ```
 Use the Bash tool to run:
-  python ".claude/lib/ollama_query.py" --prompt "<assembled prompt>" --system "<role>"
+  "C:\Users\cjani\.local\bin\python3.14.exe" ".claude/lib/ollama_query.py" --prompt "<assembled prompt>" --system "<role>"
 Then use the printed response to continue.
 ```
 
@@ -65,3 +65,11 @@ Ollama must be running locally:
 ollama serve
 ollama pull qwen3-coder:30b
 ```
+
+### Python path on this machine
+
+```
+C:\Users\cjani\.local\bin\python3.14.exe
+```
+
+`python` and `python3` are not on PATH — always use the full path above in skill Bash calls.
