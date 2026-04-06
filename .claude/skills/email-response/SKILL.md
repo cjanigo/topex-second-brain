@@ -108,30 +108,23 @@ If client name, service type, or site location are missing, ask Chris before pro
 
 If ambiguous, make a reasonable selection and flag it.
 
-**C. Estimate fee** (always flag as `[REVIEW FEE — based on limited info]`):
+**C. Estimate fee using the Fee Estimation Engine:**
 
-Survey (topo + boundary):
-| Site Size / Complexity | Fee Range |
-|---|---|
-| Small residential (<1 acre, single tax lot, no water features) | $1,800 to $2,500 |
-| Standard residential (1 to 5 acres, or two tax lots) | $2,500 to $3,500 |
-| Complex (multiple tax lots, water feature, steep terrain, or OHWM needed) | $3,500 to $5,500 |
-| Large or commercial | $5,000+ (flag for Chris to price manually) |
+Full protocol, base rate tables, multipliers, travel formula, and output format are in `references/fee-estimation.md`. Follow all five steps:
 
-Survey (boundary only, ROS, easements):
-| Scope | Fee Range |
-|---|---|
-| Simple boundary stake (1 to 4 corners) | $1,200 to $2,000 |
-| Legal description + exhibit | $800 to $1,500 |
-| Record of survey | $2,500 to $4,000 |
+1. **Select base scope and fee** from the tables (survey topo+boundary, boundary only, or engineering)
+2. **Apply modifiers** — timeline/rush, sole source, client type, site conditions, travel. Use the drive-time bands from Newport, OR. Look up drive time via WebSearch if the address is unfamiliar.
+3. **Apply title research modifiers** if `/title-research` has already run — check the project's Title Reviewing folder for the summary. If title research has NOT run yet, mark the fee `[PRELIMINARY — pending title research]`.
+4. **Build the internal breakdown block** — show to Chris, do not include in the client proposal. Format per the template in `references/fee-estimation.md` Step 3.
+5. **Set the quote flag** — ready to quote, preliminary, flag for manual review, or hourly (per Step 4 of the reference).
 
-Engineering:
-| Scope | Fee Range |
-|---|---|
-| Small report or analysis | $1,500 to $4,000 |
-| Design plans (minor) | $3,000 to $8,000 |
-| Hydraulic model | $4,000 to $12,000 |
-| City engineering (monthly) | $2,000 to $5,000/month |
+**Key signals to extract from the RFQ email for fee estimation:**
+- Site address or location → drive time and travel cost
+- Any deadline mentioned → rush modifier
+- "Referred by," direct contact, or no mention of other firms → sole source modifier
+- Water features, steep terrain, dense brush → site condition modifier
+- Whether it's a new or known client → client type modifier
+- Service type and site size → base rate row selection
 
 **D. Fill the template:**
 - Replace every `[PLACEHOLDER]` with available information; use `[INSERT: ...]` for gaps
@@ -164,6 +157,13 @@ Engineering:
     - Command to run when ready: `/title-research [extracted identifier]`
 - This draft is informational only — nothing runs until Chris manually invokes `/title-research`
 - Note in the Step 6 summary table: "Title research prompt saved as draft — portal links provided, awaiting your go-ahead"
+
+**After `/title-research` runs on this project:**
+- Read the `title-research-[date].md` summary in the project's Title Reviewing folder
+- Extract: date of most recent survey on file, adjoiner count, data availability flags
+- Re-run Step C of the fee engine using the title research modifiers from `references/fee-estimation.md`
+- Update the proposal README fee field with the revised estimate and change the flag from `[PRELIMINARY]` to `[UPDATED — title research complete]`
+- Notify Chris: "Fee estimate updated based on title research — see proposal README"
 
 ### Step 4 — Draft the Reply
 
