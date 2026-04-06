@@ -1,6 +1,6 @@
 ---
 name: email-response
-description: Read unread inbox emails, match to active projects, draft replies, and save as Gmail drafts. Never sends. Chris reviews and sends manually. Also triggers proposal-builder for RFQs and title-research for property-related quotes.
+description: Read unread inbox emails, match to active projects, draft replies, and save as Gmail drafts. Handles RFQ proposals and title research prompts inline. Never sends. Chris reviews and sends manually.
 ---
 
 # Email Response Skill
@@ -77,9 +77,78 @@ Flag an email as an RFQ if any of these appear in the subject or body:
 
 **If flagged as RFQ:**
 - Do NOT draft a standard reply email
-- Instead, invoke `/proposal-builder` with the client name, service type, and a summary of the email
-- Show the resulting proposal draft for Chris's review
-- Note in the Step 6 summary table that this email triggered `/proposal-builder`
+- Instead, execute the proposal-building protocol below inline
+- Note in the Step 6 summary table: "RFQ — proposal draft built and saved to proposals/"
+
+**Proposal-Building Protocol (inline)**
+
+**A. Gather fields from the email:**
+
+| Field | Source |
+|---|---|
+| Client name | Email sender name |
+| Client email | Email From address |
+| Client address | Email body (if provided) |
+| Service requested | Email body — what did they ask for? |
+| Site/parcel info | Tax lot number, address, or location |
+| Any scope specifics | Size, complexity, special requirements |
+| Deadline or urgency | Any dates mentioned |
+
+If client name, service type, or site location are missing, ask Chris before proceeding.
+
+**B. Select template by service type:**
+
+| Service Type | Template |
+|---|---|
+| Topographic survey (with or without boundary) | `templates/survey-sow-topo.md` |
+| Boundary survey, ROS, easement, legal description | `templates/survey-sow.md` |
+| Civil engineering (design, plans, analysis) | `templates/engineering-sow.md` |
+| Expert witness / litigation support | `templates/expert-witness-sow.md` |
+| Combined engineering + survey | `templates/engineering-survey-combined-sow.md` |
+
+If ambiguous, make a reasonable selection and flag it.
+
+**C. Estimate fee** (always flag as `[REVIEW FEE — based on limited info]`):
+
+Survey (topo + boundary):
+| Site Size / Complexity | Fee Range |
+|---|---|
+| Small residential (<1 acre, single tax lot, no water features) | $1,800 to $2,500 |
+| Standard residential (1 to 5 acres, or two tax lots) | $2,500 to $3,500 |
+| Complex (multiple tax lots, water feature, steep terrain, or OHWM needed) | $3,500 to $5,500 |
+| Large or commercial | $5,000+ (flag for Chris to price manually) |
+
+Survey (boundary only, ROS, easements):
+| Scope | Fee Range |
+|---|---|
+| Simple boundary stake (1 to 4 corners) | $1,200 to $2,000 |
+| Legal description + exhibit | $800 to $1,500 |
+| Record of survey | $2,500 to $4,000 |
+
+Engineering:
+| Scope | Fee Range |
+|---|---|
+| Small report or analysis | $1,500 to $4,000 |
+| Design plans (minor) | $3,000 to $8,000 |
+| Hydraulic model | $4,000 to $12,000 |
+| City engineering (monthly) | $2,000 to $5,000/month |
+
+**D. Fill the template:**
+- Replace every `[PLACEHOLDER]` with available information; use `[INSERT: ...]` for gaps
+- Include OHWM language if site borders a creek, slough, river, wetland, or tidal area
+- Always include: Part C fee with 50%/50% payment terms, $120/hr add-on rate, $300/hr expert witness rate, Part D schedule language (begin upon signed SOW and down payment), Attachment A reference
+
+**E. Save proposal entry:**
+1. Folder name: `proposals/YYMMDD-client-name-service-type/` (today's date)
+2. Generate next sequential proposal ID from `proposals/README.md` (e.g., P26002)
+3. Create `proposals/[folder-name]/README.md` using `templates/proposal-readme.md` — status: Pending
+4. Add a row to `proposals/README.md` index — Status: Pending, no linked project yet
+
+**F. Present to Chris:**
+- Filled proposal text (ready to paste into Word / export as PDF)
+- Fee estimate with flag if needs manual review
+- Any `[INSERT: ...]` gaps to fill before sending
+- Next steps: review, export to PDF with Topex letterhead, send to client; update proposal README with send date after sending
 
 **If flagged as RFQ AND the email contains a property address, taxlot number, legal description, or owner + parcel reference:**
 - Do NOT invoke `/title-research` automatically — county portals require a live browser session before automated access works

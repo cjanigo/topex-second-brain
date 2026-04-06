@@ -33,8 +33,6 @@ Examples:
 - `/title-research Lot 4, Block 2, Lincoln Shores Subdivision`
 - `/title-research John Smith` (owner name fallback)
 
-Also triggered automatically by `/email-response` when an RFQ email contains a property address or taxlot and mentions surveying, boundary, or title work.
-
 ---
 
 ## Key Portals
@@ -59,7 +57,7 @@ Some portals require a live browser session before they respond to automated req
 | Property Assessment | `https://propertyweb.co.lincoln.or.us/` | No gate, but intermittently down — verify it loads before running |
 | ArcGIS REST API | `https://arcgisserver.lincolncounty.org/arcgis/rest/services/?f=json` | SSL cert expired as of 2026-04 — if it fails, skip to propertyweb fallback |
 
-The skill can only proceed through automated steps after these portals are accessible. When triggered from `/email-response`, a self-addressed draft email with these links is sent to Chris first — run the skill after opening them.
+The skill can only proceed through automated steps after these portals are accessible. If you're arriving here after an RFQ, `/email-response` already sent you a self-addressed draft with these portal links — open them in a browser, then run `/title-research [identifier]`.
 
 ---
 

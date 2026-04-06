@@ -53,9 +53,9 @@ Pattern: `.claude/skills/skill-name/SKILL.md`
 | deliverable-check | `/deliverable-check` | Scan sent email to determine which project deliverables have been submitted and whether any have open follow-up questions from clients. |
 | morning-coffee | `/morning-coffee` | Daily morning briefing: emails received, draft replies pending, project status, calendar, deadlines. Saves as a Gmail draft to yourself at 7 AM. |
 | scope-sync | `/scope-sync [project]` | Read recent emails, classify scope changes, propose README updates (deliverables, change log, scope flags). Nothing written without approval. |
-| proposal-builder | `/proposal-builder` | Draft a complete SOW proposal when an RFQ arrives. Called automatically from `/email-response` when a quote request is detected. Saves a proposal entry to `proposals/`. |
+| proposal-builder | `/proposal-builder` | Direct invocation only — RFQ proposals are handled inline by `/email-response`. Use when building a proposal outside of email triage (e.g., phone call or meeting). |
 | proposal-review | `/proposal-review` | Monthly review: marks expired proposals (no project created within 30 days), analyzes lost/expired proposals for patterns and win rate. |
-| title-research | `/title-research [address, taxlot, legal desc, or owner name]` | Look up a Lincoln County, OR property, find all adjoining parcels, download recorded deeds into `deeds/` and plats/records of survey into `plats/` under the project folder. Also triggered automatically from `/email-response` when an RFQ includes property data. |
+| title-research | `/title-research [address, taxlot, legal desc, or owner name]` | Look up a Lincoln County, OR property, find all adjoining parcels, download recorded deeds into `deeds/` and plats/records of survey into `plats/` under the project folder. Run manually after `/email-response` saves a title research prompt draft for you. |
 
 ### Financial Skills
 
