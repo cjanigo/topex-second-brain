@@ -1,0 +1,30 @@
+PAYROLL SUMMARY -- [Pay Period Start] to [Pay Period End]
+Pay Date: [Pay Date] | Employee: Chris Janigo
+----------------------------------------------------------
+GROSS WAGES                                    $[amount]
+
+EMPLOYEE DEDUCTIONS
+  Federal Income Tax Withheld                 ($[amount])
+  Social Security (6.2%)                      ($[amount])
+  Medicare (1.45%)                            ($[amount])
+  Oregon Income Tax Withheld                  ($[amount])
+  Oregon STT ([rate]%)                        ($[amount])
+                                              -----------
+NET PAY                                        $[amount]
+
+EMPLOYER OBLIGATIONS (not deducted from net pay)
+  Social Security (6.2%)                       $[amount]
+  Medicare (1.45%)                             $[amount]
+  Oregon UI ([rate]%, taxable wages $[amount])  $[amount]
+  WBF ([hours] hrs x $[rate]/hr)               $[amount]
+                                              -----------
+TOTAL EMPLOYER TAX COST                        $[amount]
+
+YTD SUMMARY
+  YTD Gross Wages (after this period)          $[amount]
+  YTD SS Wages Applied to Cap                  $[amount]
+  YTD Oregon UI Wages Applied to Cap           $[amount]
+
+Flags: [list or "None"]
+Status: DRAFT -- For review before payroll is processed.
+Rates applied: [list each rate and source/year]

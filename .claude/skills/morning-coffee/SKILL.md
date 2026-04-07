@@ -59,6 +59,7 @@ For each project found, extract:
 Also read:
 - `context/current-priorities.md` — active deadline list
 - `context/me.md` — Chris's credentials and role (for email signature)
+- `context/project-index.md` — keyword index for matching emails to projects in Step 2
 
 ### Step 2 — Fetch Recent Emails
 
@@ -76,18 +77,7 @@ Build a triage list:
 | From | Subject | Read? | Project Match | Action Needed |
 |---|---|---|---|---|
 
-Match each email to an active project using keywords from the project READMEs. Use the keyword index from the email-response skill as a reference:
-
-| Keyword | Project |
-|---|---|
-| expert witness, testimony, deposition, case, legal | Expert Witness |
-| property line, boundary, PLA, parcel, lot line | Property Line Adjustment |
-| hydraulic, EPANET, flood, drainage, stormwater, flow | Hydraulic Model |
-| survey, monument, plat, record of survey, GPS | General Surveying |
-| water right, DOE, adjudication, certificate | Water Rights |
-| city engineer, municipal, ROW, permit | City Engineering |
-| erosion, sediment, CESCL, SWPPP, grading | Erosion Control |
-| drone, UAS, aerial, LiDAR, point cloud | Drone / UAS |
+Match each email to an active project using the keywords from `context/project-index.md` (already loaded in Step 1).
 
 ### Step 3 — Check Gmail Drafts
 

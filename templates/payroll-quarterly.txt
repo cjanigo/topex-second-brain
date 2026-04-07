@@ -1,0 +1,45 @@
+QUARTERLY FILING PACKAGE
+Quarter: [Q#] [YYYY] | Period: [start] to [end] | Due: [due date]
+==================================================================
+
+FORM 941 -- FEDERAL QUARTERLY SUMMARY
+--------------------------------------
+Line 2   Wages, tips, other compensation          $[amount]
+Line 3   Federal income tax withheld             ($[amount])
+Line 5a  SS wages x 12.4%                        $[amount]
+Line 5c  Medicare wages x 2.9%                   $[amount]
+Line 6   Total taxes before adjustments           $[amount]
+Line 12  Total taxes after adjustments            $[amount]
+Line 13  Total deposits made                      $[amount]  [FLAG if unknown]
+Line 14  Balance due / (overpayment)              $[amount]
+
+OREGON FORM OQ SUMMARY
+-----------------------
+Subject wages                                     $[amount]
+Oregon income tax withheld                        $[amount]
+Oregon UI taxable wages                           $[amount]
+Oregon UI tax due ([rate]%)                       $[amount]
+Oregon STT ([rate]%)                              $[amount]
+WBF hours                                         [hours]
+WBF assessment ($[rate]/hr)                       $[amount]
+
+OREGON FORM 132 -- EMPLOYEE DETAIL
+------------------------------------
+Employee: Chris Janigo | SSN: [REDACTED -- enter before filing]
+Subject wages: $[amount] | UI taxable wages: $[amount] | Hours: [hours]
+
+FILING CHECKLIST
+----------------
+[ ] Form 941 -- due [date]
+[ ] Oregon Form OQ -- due [date]
+[ ] Oregon Form 132 -- submitted with OQ
+[ ] Federal tax deposit verified (Line 13 matches actual deposits)
+[ ] Oregon withholding deposit verified
+[ ] WBF -- assessed annually by DCBS; track hours here for annual billing
+
+DEPOSIT SCHEDULE: [Monthly | Semi-weekly | Pay with return]
+
+Flags: [list or "None"]
+
+DRAFT -- Verify all figures before filing.
+Rates applied: [list each rate, type, and source period]

@@ -43,9 +43,9 @@ Examples:
 Before reading any emails, load:
 - `context/current-priorities.md` — active deadlines and focus areas
 - `context/me.md` — Chris's credentials and role
-- All project READMEs in `projects/` — for keyword matching and context
+- `context/project-index.md` — one-line summary of all active projects for keyword matching
 
-Build a mental map of active projects and their keywords. Always load project READMEs from `projects/` first — deadlines and client details live there and should inform every draft. Do not rely on any hardcoded keyword or deadline list here; read the READMEs at runtime every time.
+Do NOT load all project READMEs upfront. Instead, use the index to match each email to the right project, then load only that project's README for full context. This keeps token usage low.
 
 ### Step 2 — Fetch Unread Emails
 
@@ -62,23 +62,18 @@ Fetch up to 20 at a time. For each result:
 For each email, determine:
 
 1. **RFQ check** — Before anything else, check if this is a request for quote or proposal. See RFQ Detection below.
-2. **Project match** — Does the subject, body, or sender match any active project keywords? If yes, note which project(s).
+2. **Project match** — Match the subject, body, and sender against the project index loaded in Step 1. If a match is found, load that project's README now for full context.
 3. **Action required** — What does the sender actually want? (answer a question, confirm a schedule, review a document, etc.)
 4. **Information gaps** — What would Chris need to know to answer fully? If gaps exist, list them — ask Chris before drafting, or flag in the draft.
 5. **Urgency** — Does this relate to a deadline within 7 days?
 
 #### RFQ Detection
 
-Flag an email as an RFQ if any of these appear in the subject or body:
-
-**High-confidence signals:** "quote", "proposal", "RFQ", "RFP", "scope of work", "what would you charge", "how much", "price", "cost estimate", "fee", "are you available", "do you do", "can you help with"
-
-**Supporting signals (combine with the above):** new sender not in any active project, mentions a parcel, address, tax lot, property, survey, or engineering need
-
-**If flagged as RFQ:**
-- Do NOT draft a standard reply email
-- Instead, execute the proposal-building protocol below inline
-- Note in the Step 6 summary table: "RFQ — proposal draft built and saved to proposals/"
+| Signal Type | Keywords / Conditions | Action |
+|---|---|---|
+| High-confidence | "quote", "proposal", "RFQ", "RFP", "scope of work", "how much", "cost estimate", "fee", "are you available", "can you help" | Flag as RFQ |
+| Supporting | New sender not in project index + mentions parcel, address, survey, or engineering need | Flag as RFQ if combined with any high-confidence signal |
+| RFQ confirmed | — | Do NOT draft standard reply; run proposal-building protocol below; note in Step 6 table: "RFQ — proposal saved to proposals/" |
 
 **Proposal-Building Protocol (inline)**
 
@@ -232,18 +227,7 @@ After Chris answers, go back and update the draft via `gmail_create_draft` (crea
 
 ## Project Keyword Index
 
-This index grows over time. Update when new projects are added to `projects/`.
-
-| Keyword | Project |
-|---|---|
-| expert witness, testimony, deposition, case | Expert Witness Report |
-| property line, boundary, PLA, parcel, lot line | Property Line Adjustment |
-| hydraulic, EPANET, flood, drainage, stormwater, flow, culvert | Hydraulic Model and Map |
-| survey, monument, plat, record of survey, boundary, GPS | General Surveying |
-| water right, DOE, adjudication, certificate, permit to appropriate | Water Rights |
-| city engineer, municipal, right-of-way, ROW, permit | City Engineering |
-| erosion, sediment, CESCL, SWPPP, grading | Erosion Control |
-| drone, UAS, aerial, LiDAR, point cloud | Drone / UAS |
+Project-specific keywords are in `context/project-index.md`. Load that file in Step 1 — do not hardcode keywords here.
 
 ---
 

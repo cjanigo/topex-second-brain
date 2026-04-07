@@ -155,58 +155,7 @@ Separate line item at the applicable rate. If the project README specifies a rei
 
 Format one invoice per client. If a client has multiple hourly projects in the same billing period, combine all line items into a single invoice.
 
-```
-TOPEX INC.
-5412708432
-59 Fred Taylor Rd, Siletz, OR 97380
-
-INVOICE DRAFT (For Review -- Do Not Send)
-
-Billed To:       [Client Name]
-                 [Client Organization]
-                 [Client Address -- fill in if not in README]
-
-Invoice Number:  [DRAFT -- assign before sending]
-Date of Issue:   [today's date]
-Due Date:        [today's date]
-Billing Period:  [Month YYYY]
-
-DESCRIPTION                                                 RATE      QTY    LINE TOTAL
----------------------------------------------------------------------------------------
-[Project Name]
-([Contract Type]) Chris Janigo -- [Date]
-[Task description]                                          $120.00   [hrs]  $[total]
-
-[Project Name]
-([Contract Type]) Chris Janigo -- [Date]
-[Task description]                                          $120.00   [hrs]  $[total]
-
-[Travel/Mileage line -- if applicable]
-[Date] -- Travel to [destination]                          $[rate]   1      $[amount]
-
----------------------------------------------------------------------------------------
-Subtotal:        $[sum]
-Tax:             $0.00
-Total:           $[sum]
-Amount Paid:     $0.00
-Amount Due:      $[sum]
-
-NOTES:
-Electronic Funds Transfer (ACH) preferred. If your finance department requires
-vendor enrollment, I can provide: W-9, ACH authorization form, or bank verification
-letter. Please contact me for secure remittance details.
-
----
-TIME ESTIMATE SUMMARY (Internal -- do not send to client)
-
-| Date | Email Subject | Task | Hours | Basis |
-|------|--------------|------|-------|-------|
-| [date] | [subject] | [task] | [hrs] | [one-line justification] |
-| ... | ... | ... | ... | ... |
-
-Review these estimates before sending. Adjust any line items in your invoicing software.
-Items marked [FLAG] need your input before the invoice is complete.
-```
+Format per `templates/invoice-draft.txt`. Substitute all `[placeholder]` fields with computed values. Keep the TIME ESTIMATE SUMMARY block at the bottom for Chris's review.
 
 ---
 

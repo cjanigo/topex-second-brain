@@ -132,6 +132,8 @@ Employer taxes (employer SS, employer Medicare, Oregon UI, WBF) are separate emp
 
 ### Step 6 -- Output Payroll Summary Record
 
+Output the JSON record first:
+
 ```json
 {
   "record_type": "payroll_summary",
@@ -159,40 +161,7 @@ Employer taxes (employer SS, employer Medicare, Oregon UI, WBF) are separate emp
 }
 ```
 
-Human-readable output:
-
-```
-PAYROLL SUMMARY -- [Pay Period Start] to [Pay Period End]
-Pay Date: [Pay Date] | Employee: Chris Janigo
-----------------------------------------------------------
-GROSS WAGES                                    $[amount]
-
-EMPLOYEE DEDUCTIONS
-  Federal Income Tax Withheld                 ($[amount])
-  Social Security (6.2%)                      ($[amount])
-  Medicare (1.45%)                            ($[amount])
-  Oregon Income Tax Withheld                  ($[amount])
-  Oregon STT ([rate]%)                        ($[amount])
-                                              -----------
-NET PAY                                        $[amount]
-
-EMPLOYER OBLIGATIONS (not deducted from net pay)
-  Social Security (6.2%)                       $[amount]
-  Medicare (1.45%)                             $[amount]
-  Oregon UI ([rate]%, taxable wages $[amount])  $[amount]
-  WBF ([hours] hrs x $[rate]/hr)               $[amount]
-                                              -----------
-TOTAL EMPLOYER TAX COST                        $[amount]
-
-YTD SUMMARY
-  YTD Gross Wages (after this period)          $[amount]
-  YTD SS Wages Applied to Cap                  $[amount]
-  YTD Oregon UI Wages Applied to Cap           $[amount]
-
-Flags: [list or "None"]
-Status: DRAFT -- For review before payroll is processed.
-Rates applied: [list each rate and source/year]
-```
+Then produce the human-readable summary using the format in `templates/payroll-summary.txt`. Substitute all `[placeholder]` fields with computed values.
 
 ### Step 7 -- Deposit Schedule Note
 
@@ -308,53 +277,7 @@ For each deposit due during the quarter, flag if the deposit date is unknown or 
 
 ### Step 9 -- Output Human-Readable Filing Package
 
-```
-QUARTERLY FILING PACKAGE
-Quarter: [Q#] [YYYY] | Period: [start] to [end] | Due: [due date]
-==================================================================
-
-FORM 941 -- FEDERAL QUARTERLY SUMMARY
---------------------------------------
-Line 2   Wages, tips, other compensation          $[amount]
-Line 3   Federal income tax withheld             ($[amount])
-Line 5a  SS wages x 12.4%                        $[amount]
-Line 5c  Medicare wages x 2.9%                   $[amount]
-Line 6   Total taxes before adjustments           $[amount]
-Line 12  Total taxes after adjustments            $[amount]
-Line 13  Total deposits made                      $[amount]  [FLAG if unknown]
-Line 14  Balance due / (overpayment)              $[amount]
-
-OREGON FORM OQ SUMMARY
------------------------
-Subject wages                                     $[amount]
-Oregon income tax withheld                        $[amount]
-Oregon UI taxable wages                           $[amount]
-Oregon UI tax due ([rate]%)                       $[amount]
-Oregon STT ([rate]%)                              $[amount]
-WBF hours                                         [hours]
-WBF assessment ($[rate]/hr)                       $[amount]
-
-OREGON FORM 132 -- EMPLOYEE DETAIL
-------------------------------------
-Employee: Chris Janigo | SSN: [REDACTED -- enter before filing]
-Subject wages: $[amount] | UI taxable wages: $[amount] | Hours: [hours]
-
-FILING CHECKLIST
-----------------
-[ ] Form 941 -- due [date]
-[ ] Oregon Form OQ -- due [date]
-[ ] Oregon Form 132 -- submitted with OQ
-[ ] Federal tax deposit verified (Line 13 matches actual deposits)
-[ ] Oregon withholding deposit verified
-[ ] WBF -- assessed annually by DCBS; track hours here for annual billing
-
-DEPOSIT SCHEDULE: [Monthly | Semi-weekly | Pay with return]
-
-Flags: [list or "None"]
-
-DRAFT -- Verify all figures before filing.
-Rates applied: [list each rate, type, and source period]
-```
+Format per `templates/payroll-quarterly.txt`. Substitute all `[placeholder]` fields with computed values.
 
 ---
 
@@ -521,43 +444,7 @@ DRAFT -- For CPA review before filing Form 1120-S.
 
 ### Step 7 -- Year-End Checklist
 
-```
-YEAR-END CLOSE CHECKLIST -- [YYYY]
-====================================
-PAYROLL & W-2
-[ ] All 12 months of payroll records gathered and reconciled
-[ ] W-2 boxes computed and reviewed by Chris
-[ ] SSN and EIN entered (outside this system)
-[ ] S-corp health insurance added to Box 1 / Box 12 (confirm with CPA)
-[ ] W-2 filed with SSA and Oregon DOR by January 31
-
-1099-NEC
-[ ] CONT vendor list compiled and thresholds checked
-[ ] W-9 on file for all 1099 recipients
-[ ] Entity type confirmed for all vendors
-[ ] 1099-NEC sent to recipients and IRS by January 31
-
-FUTA
-[ ] FUTA taxable wages confirmed ($7,000 cap)
-[ ] Oregon UI paid in full and on time
-[ ] Form 940 filed by January 31
-
-FORM 1120-S
-[ ] Gross receipts reconciled to invoicing records
-[ ] All expense categories populated
-[ ] Depreciation and home office deduction with CPA
-[ ] Shareholder basis tracked by CPA
-[ ] Reasonable compensation reviewed with CPA
-[ ] Form 1120-S filed by March 15 (or September 15 if extended)
-[ ] Schedule K-1 issued for personal return (Form 1040)
-
-BANK RECONCILIATION
-[ ] All accounts reconciled to December 31 statements
-[ ] All open flags from /bank-categorize resolved
-
-Flags: [list or "None"]
-DRAFT -- CPA review required before any filing.
-```
+Output the checklist using the format in `templates/payroll-yearend-checklist.txt`. Substitute `[YYYY]` with the filing year and populate any flags found during the close.
 
 ---
 

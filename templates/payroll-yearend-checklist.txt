@@ -1,0 +1,35 @@
+YEAR-END CLOSE CHECKLIST -- [YYYY]
+====================================
+PAYROLL & W-2
+[ ] All 12 months of payroll records gathered and reconciled
+[ ] W-2 boxes computed and reviewed by Chris
+[ ] SSN and EIN entered (outside this system)
+[ ] S-corp health insurance added to Box 1 / Box 12 (confirm with CPA)
+[ ] W-2 filed with SSA and Oregon DOR by January 31
+
+1099-NEC
+[ ] CONT vendor list compiled and thresholds checked
+[ ] W-9 on file for all 1099 recipients
+[ ] Entity type confirmed for all vendors
+[ ] 1099-NEC sent to recipients and IRS by January 31
+
+FUTA
+[ ] FUTA taxable wages confirmed ($7,000 cap)
+[ ] Oregon UI paid in full and on time
+[ ] Form 940 filed by January 31
+
+FORM 1120-S
+[ ] Gross receipts reconciled to invoicing records
+[ ] All expense categories populated
+[ ] Depreciation and home office deduction with CPA
+[ ] Shareholder basis tracked by CPA
+[ ] Reasonable compensation reviewed with CPA
+[ ] Form 1120-S filed by March 15 (or September 15 if extended)
+[ ] Schedule K-1 issued for personal return (Form 1040)
+
+BANK RECONCILIATION
+[ ] All accounts reconciled to December 31 statements
+[ ] All open flags from /bank-categorize resolved
+
+Flags: [list or "None"]
+DRAFT -- CPA review required before any filing.

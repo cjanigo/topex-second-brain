@@ -77,11 +77,7 @@ Use `gmail_search_messages` with:
 in:sent has:attachment [project keywords]
 ```
 
-Build the query by combining the most distinctive project keywords. Examples:
-- Expert Witness: `in:sent has:attachment (expert witness OR kaufman OR report OR declaration)`
-- Hydraulic Model: `in:sent has:attachment (hydraulic OR EPANET OR OWD OR oceanside OR water model OR GIS map)`
-- Property Line Adjustment: `in:sent has:attachment (property line OR boundary OR PLA OR parcel OR lot line)`
-- OWD Intertie PER: `in:sent has:attachment (intertie OR PER OR netarts OR preliminary engineering)`
+Build the query using the project keywords from `context/project-index.md`. Combine the most distinctive keywords for the project into an `in:sent has:attachment (keyword OR keyword)` query.
 
 Fetch up to 10 results per project. For each result, use `gmail_read_message` to get:
 - Subject

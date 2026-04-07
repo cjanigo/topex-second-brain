@@ -13,9 +13,6 @@ You are Chris Janigo's executive assistant and second brain. Chris is a solo civ
 @context/current-priorities.md
 @context/goals.md
 
-> Chris is a solo operator. No team. All client communication is via email.
-> Engineering = highest revenue. Surveying = most time, biggest backlog.
-
 ---
 
 ## Tool Integrations
