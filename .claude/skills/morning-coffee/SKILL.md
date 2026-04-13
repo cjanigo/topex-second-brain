@@ -30,15 +30,6 @@ No arguments needed. Run manually or via daily schedule.
 
 ## Execution Protocol
 
-### Step 0 — Find a Good News Story
-
-Use WebSearch to find one piece of good news from the last 24 hours. Search for something like: `good news today [date]` or `positive news [date]`. Pick one short, feel-good story -- science, wildlife, community, human interest, or anything uplifting. Not politics. Not business. Capture:
-- Headline
-- One sentence summary
-- Source name
-
-This goes at the top of the briefing.
-
 ### Step 1 — Load Project Context
 
 Read all project READMEs before doing anything else. These are the source of truth for deadlines, deliverables, and status.
@@ -60,40 +51,6 @@ Also read:
 - `context/current-priorities.md` — active deadline list
 - `context/me.md` — Chris's credentials and role (for email signature)
 - `context/project-index.md` — keyword index for matching emails to projects in Step 2
-
-### Step 2 — Fetch Recent Emails
-
-Use `gmail_search_messages` with query: `in:inbox after:YYYY/MM/DD`
-
-Where the date is yesterday (24 hours ago). Fetch up to 30 results.
-
-For each message, use `gmail_read_message` to get:
-- From (sender name + email)
-- Subject
-- Snippet or first paragraph of body
-- Whether it's been read
-
-Build a triage list:
-| From | Subject | Read? | Project Match | Action Needed |
-|---|---|---|---|---|
-
-Match each email to an active project using the keywords from `context/project-index.md` (already loaded in Step 1).
-
-### Step 3 — Check Gmail Drafts
-
-Use `gmail_list_drafts` to find any drafts that exist. For each draft:
-- Note the subject and recipient
-- Flag if it looks like an auto-drafted reply (Re: prefix, sent to a client)
-- Note whether it appears send-ready or has placeholders like `[INSERT: ...]`
-
-### Step 4 — Check Google Calendar
-
-Use `gcal_list_events` to get today's events and anything scheduled in the next 3 days.
-
-Look for:
-- Scheduled calls or meetings
-- Field work
-- Internal deadlines
 
 ### Step 5 — Compose the Briefing
 
@@ -149,20 +106,6 @@ Rules for the briefing:
 - Tables for all structured data
 - No em dashes, no en dashes
 - Pacific time for all times
-
-### Step 6 — Write the Joke
-
-Pick one short, clean joke to close the briefing. Engineering, surveying, construction, or dad-joke style preferred. Generate it fresh each day -- don't reuse the same joke.
-
-### Step 7 — Save as Gmail Draft
-
-Use `gmail_create_draft` with:
-- `to`: `cjanigo@topexeng-ls.com`
-- `subject`: `Morning Coffee: [Weekday, Month Day]`
-- `body`: the full briefing text (plain text)
-- `contentType`: `text/plain`
-
-Do NOT send. Save as draft only. Chris will see it in Gmail drafts when he opens his inbox.
 
 ### Step 8 — Confirm
 

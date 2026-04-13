@@ -4,7 +4,7 @@ After any file is created or modified in this repo, always commit and push to `o
 
 ## Why
 
-The remote trigger (Topex Daily Assistant) reads from `github.com/cjanigo/topex-second-brain`, not the local filesystem. Any unpushed changes are invisible to the trigger. Skills, project READMEs, context files, and rules must be on GitHub to take effect.
+Ollama (and any other subagent) reads from `github.com/cjanigo/topex-second-brain`, not the local filesystem. Any unpushed changes are invisible to downstream agents. Skills, project READMEs, context files, and rules must be on GitHub to take effect.
 
 ## What to Push
 

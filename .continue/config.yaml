@@ -1,0 +1,15 @@
+models:
+  - name: OpenClaw Qwen3 Coder
+    provider: openai
+    model: qwen3-coder:30b
+    api_base: http://localhost:18789/v1
+    api_key: 51d9c87d1e1c36809681014c89504811f4304cfe66faf313
+    roles:
+      - chat
+      - edit
+      - apply
+      - summarize
+    capabilities:
+      - tool_use
+    default_completion_options:
+      context_length: 262000  # OpenClaw can handle much higher than 4096

@@ -47,15 +47,6 @@ Before reading any emails, load:
 
 Do NOT load all project READMEs upfront. Instead, use the index to match each email to the right project, then load only that project's README for full context. This keeps token usage low.
 
-### Step 2 — Fetch Unread Emails
-
-Use `gmail_search_messages` to find emails:
-- Default query: `is:unread in:inbox`
-- Apply any user-provided search filter on top
-
-Fetch up to 20 at a time. For each result:
-1. Use `gmail_read_message` to get the message content and thread ID.
-2. If the message has a `threadId` (i.e., it is part of a thread with prior messages), also call `gmail_read_thread` with that thread ID to get the full conversation in order. Use this context when drafting — prior messages often contain commitments, questions, or decisions that should inform the reply.
 
 ### Step 3 — Triage Each Email
 
